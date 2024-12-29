@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | BTech Fresher</title>
+    <link rel="stylesheet" href="{{url_for('static',filename="style.css")}}">
+</head>
+<body>
+    <header>
+        <h1>ABHISHEK V</h1>
+        <p>Creative Thinker | Developer | Innovator</p>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <img src="{{ url_for('static',filename="profile.jpg")}}" alt="Profile Picture">
+            <div class="profile-content">
+                <h2>About Me</h2>
+                <p>I am a Python Developer with a Bachelor's degree in Computer Science and Engineering from Nehru Institute of Technology. I specialize in backend development, web development, and data science, with expertise in Python, Flask, REST APIs, and databases like PostgreSQL. My projects include a fully functional blog site and a personal portfolio website, showcasing my ability to develop creative and efficient solutions. Certified in Python through the 100 Days of Code Bootcamp, I am passionate about continuous learning and staying at the forefront of technology trends.</p>
+            </div>
+        </div>
+
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Data science</li>
+                <li>Flask</li>
+                <li>SQL</li>
+                <li>Git, GitHub and Version Control</li>
+                <li>Web Scraping</li>
+                
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h3>Projects</h3>
+            <div class="project">
+                <h4>Interactive Portfolio</h4>
+                <p>A beautifully designed personal portfolio to showcase skills and creativity.</p>
+                <a href="https://github.com/yourusername/portfolio" target="_blank">GitHub Link</a>
+            </div>
+            <div class="project">
+                <h4>A SIMPLE BLOG SITE </h4>
+                <p>A fully-fledged blog site project built with Python Flask allows users to create, edit, delete, and view blog posts. It features user authentication (login/register), allowing for both admin and regular user roles. Admins can manage posts, while regular users can engage with content by commenting on posts. The site is designed with a simple and responsive UI, using Flask for backend routing, SQLAlchemy for database management, and Jinja for templating.</p>
+                <a href="https://github.com/yourusername/task-manager" target="_blank">GitHub Link</a>
+            </div>
+        </section>
+
+        <section class="contact"><li>Git, GitHub and Version Control</li>
+            <h3>Contact Me</h3>
+            <form id="contactForm" action="/contact" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        </section>
+    </div>
+
+    <footer>
+        <p>Connect with me on <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </footer>
+    <script src="{{url_for('static',filename="script.js")}}"></script>
+</body>
+</html>
